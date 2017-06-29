@@ -17,5 +17,10 @@ public class ActorService {
 	public void insertActor(@WebParam(name="actor") ActorBean actor){
 		// omissis
 	}
-	
+
+	@WebMethod
+    public void deleteActor(@WebParam(name="id") int id){
+	    // omissis
+    }
+
 }

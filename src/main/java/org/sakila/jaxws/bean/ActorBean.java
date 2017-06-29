@@ -5,9 +5,11 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name="actor")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ActorBean {
-	@XmlElement(required=true,nillable=false)
+	@XmlElement
+	private int id;
+	@XmlElement( required=true, nillable=false )
 	private String firstName;
-	@XmlElement(required=true,nillable=false)
+	@XmlElement( required=true, nillable=false )
 	private String lastName;
 	
 	public String getFirstName() {

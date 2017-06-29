@@ -6,7 +6,7 @@ import javax.jws.soap.SOAPBinding;
 
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)
-public class SakilaJAXWS {
+public class ExampleService {
 
 	@WebMethod
 	public String ciao(String nome){
