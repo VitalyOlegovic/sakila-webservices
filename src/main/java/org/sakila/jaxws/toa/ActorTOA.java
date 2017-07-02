@@ -6,8 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.sakila.jaxws.bean.ActorBean;
-
-import sakilajpa.model.Actor;
+import org.sakila.jaxws.model.Actor;
 
 public class ActorTOA {
 
@@ -17,9 +16,11 @@ public class ActorTOA {
 		a.setFirstName(ab.getFirstName());
 		a.setLastName(ab.getLastName());
 		
-		long time = ab.getLastUpdate().getTime();
-		Timestamp t = new Timestamp(time);
-		a.setLastUpdate(t);
+		if(ab.getLastUpdate() != null){
+			long time = ab.getLastUpdate().getTime();
+			Timestamp t = new Timestamp(time);
+			a.setLastUpdate(t);
+		}
 		
 		return a;
 	}
@@ -30,9 +31,11 @@ public class ActorTOA {
 		ab.setFirstName(a.getFirstName());
 		ab.setLastName(a.getLastName());
 		
-		long time = a.getLastUpdate().getTime();
-		Date d = new Date(time);
-		ab.setLastUpdate(d);
+		if(a.getLastUpdate() != null){
+			long time = a.getLastUpdate().getTime();
+			Date d = new Date(time);
+			ab.setLastUpdate(d);
+		}
 		
 		return ab;
 	}
