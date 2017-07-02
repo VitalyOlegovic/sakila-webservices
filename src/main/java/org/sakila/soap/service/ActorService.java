@@ -1,4 +1,4 @@
-package org.sakila.jaxws.service;
+package org.sakila.soap.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +10,10 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 
-import org.sakila.jaxws.bean.ActorBean;
-import org.sakila.jaxws.dao.ActorDAO;
-import org.sakila.jaxws.model.Actor;
-import org.sakila.jaxws.toa.ActorTOA;
+import org.sakila.soap.bean.ActorBean;
+import org.sakila.soap.toa.ActorTOA;
+import org.sakila.webservices.dao.ActorDAO;
+import org.sakila.webservices.model.Actor;
 
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)

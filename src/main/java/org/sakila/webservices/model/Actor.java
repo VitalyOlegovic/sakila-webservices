@@ -1,4 +1,4 @@
-package org.sakila.jaxws.model;
+package org.sakila.webservices.model;
 
 import java.io.Serializable;
 import javax.persistence.*;

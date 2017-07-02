@@ -1,4 +1,4 @@
-package org.sakila.jaxws.bean;
+package org.sakila.soap.bean;
 
 import java.util.Date;
 

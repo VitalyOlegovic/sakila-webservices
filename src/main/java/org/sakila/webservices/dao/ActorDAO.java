@@ -1,4 +1,4 @@
-package org.sakila.jaxws.dao;
+package org.sakila.webservices.dao;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import org.sakila.jaxws.model.Actor;
+import org.sakila.webservices.model.Actor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

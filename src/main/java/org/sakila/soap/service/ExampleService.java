@@ -1,4 +1,4 @@
-package org.sakila.jaxws.service;
+package org.sakila.soap.service;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

@@ -1,12 +1,12 @@
-package org.sakila.jaxws.toa;
+package org.sakila.soap.toa;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.sakila.jaxws.bean.ActorBean;
-import org.sakila.jaxws.model.Actor;
+import org.sakila.soap.bean.ActorBean;
+import org.sakila.webservices.model.Actor;
 
 public class ActorTOA {
 
