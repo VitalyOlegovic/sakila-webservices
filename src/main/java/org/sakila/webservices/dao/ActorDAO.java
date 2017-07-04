@@ -26,6 +26,11 @@ public class ActorDAO {
 		return l;
 	}
 	
+	public Actor find(int id){
+		Actor a = em.find(Actor.class, id);
+		return a;
+	}
+	
 	@Transactional
 	public void delete(int id){
 		Actor a = em.find(Actor.class, id);
