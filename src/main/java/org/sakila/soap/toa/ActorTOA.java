@@ -20,6 +20,8 @@ public class ActorTOA {
 			long time = ab.getLastUpdate().getTime();
 			Timestamp t = new Timestamp(time);
 			a.setLastUpdate(t);
+		}else{
+			a.setLastUpdate(new Timestamp(System.currentTimeMillis()));
 		}
 		
 		return a;
@@ -35,6 +37,8 @@ public class ActorTOA {
 			long time = a.getLastUpdate().getTime();
 			Date d = new Date(time);
 			ab.setLastUpdate(d);
+		}else{
+			ab.setLastUpdate(new Date());
 		}
 		
 		return ab;
