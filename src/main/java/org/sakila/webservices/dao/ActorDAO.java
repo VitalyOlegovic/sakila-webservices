@@ -1,6 +1,7 @@
 package org.sakila.webservices.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
@@ -32,22 +33,46 @@ public class ActorDAO {
 	}
 	
 	@Transactional
-	public void delete(int id){
-		Actor a = em.find(Actor.class, id);
-		em.remove(a);
+	public Optional<Actor> delete(int id){
+		Optional<Actor> o;
+		try {
+			Actor a = em.find(Actor.class, id);
+			em.remove(a);
+			o = Optional.of(a);
+		}catch(Exception e) {
+			logger.error(e.getMessage(), e);
+			o = Optional.empty();
+		}
+		return o;
 	}
 	
 	@Transactional
-	public void update(Actor a){
-		Actor a1 = em.find(Actor.class, a.getActorId());
-		a1.setFirstName(a.getFirstName());
-		a1.setLastName(a.getLastName());
-		em.persist(a1);
+	public Optional<Actor> update(Actor a){
+		Optional<Actor> o;
+		try {
+			Actor a1 = em.find(Actor.class, a.getActorId());
+			a1.setFirstName(a.getFirstName());
+			a1.setLastName(a.getLastName());
+			em.persist(a1);
+			o = Optional.of(a1);
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			o = Optional.empty();
+		}
+		return o;
 	}
 
 	@Transactional
-	public void save(Actor a) {
-		em.persist(a);
+	public Optional<Actor> save(Actor a) {
+		Optional<Actor> o;
+		try {
+			em.persist(a);
+			o = Optional.of(a);
+		}catch(Exception e){
+			logger.error(e.getMessage(), e);
+			o = Optional.empty();
+		}
+		return o;
 	}
 	
 }

@@ -2,6 +2,7 @@ package org.sakila.rest.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.inject.Inject;
 import javax.ws.rs.DELETE;
@@ -55,8 +56,15 @@ public class ActorRESTService {
 			return Response.noContent().build();
 		}
 		Actor a = ActorTOA.toModel(ab);
-		actorDAO.save(a);
-		return Response.ok().build();
+		Optional<Actor> optional = actorDAO.save(a);
+		Response response;
+		if(optional.isPresent()) {
+			ActorBean ab1 = optional.map(ActorTOA::toBean).get();
+			response = Response.ok(ab1, MediaType.APPLICATION_JSON).build();
+		}else {
+			response = Response.serverError().build();
+		}
+		return response;
 	}
 	
 	@PUT
@@ -65,15 +73,29 @@ public class ActorRESTService {
 			return Response.noContent().build();
 		}
 		Actor a = ActorTOA.toModel(ab);
-		actorDAO.update(a);
-		return Response.ok().build();
+		Optional<Actor> optional = actorDAO.update(a);
+		Response response;
+		if(optional.isPresent()) {
+			ActorBean ab1 = optional.map(ActorTOA::toBean).get();
+			response = Response.ok(ab1, MediaType.APPLICATION_JSON).build();
+		}else {
+			response = Response.serverError().build();
+		}
+		return response;
 	}
 	
 	@DELETE
 	@Path("{id}")
 	public Response delete(@PathParam("id") int id){
-		actorDAO.delete(id);
-		return Response.ok().build();
+		Optional<Actor> optional = actorDAO.delete(id);
+		Response response;
+		if(optional.isPresent()) {
+			ActorBean ab = optional.map(ActorTOA::toBean).get();
+			response = Response.ok(ab, MediaType.APPLICATION_JSON).build();
+		}else {
+			response = Response.serverError().build();
+		}
+		return response;
 	}
 	
 }
